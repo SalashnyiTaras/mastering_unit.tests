@@ -1,0 +1,29 @@
+test_<filename> - it is a convention to name file with unit tests
+
+be careful when naming tests - if a name of a test does not start with "test_",
+a unit-test will be simply skipped
+
+do not think that all tests being right in the order they were created: no, they do not
+
+setUp() - creates an environment, to bu run right before each test
+tearDown() - method used for cleaning the environment created in setUp(). Run right after completion of each test
+
+If we want to run some code in the very beginning of the text and also after all tests will be run,
+we can use:
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        print('text')
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        print('text')
+
+
+Case:
+we have a function which goes to web-site and gets some data. If the website is down function will fail.
+We do not want it because we want to test only errors in our code.
+That is the best time for mocking to be used.
+
+Best practices:
+    - test should be independent and isolated
